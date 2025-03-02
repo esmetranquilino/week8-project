@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Esme's Weather App</title>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header>
+        <form class="search-form" id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a City..."
+            required
+            id="search-form-input"
+            class="search-form-input"
+          />
+          <input type="submit" value="Search" class="search-btn" />
+        </form>
+      </header>
+      <main>
+        <div class="weather-data">
+          <div>
+            <h1 class="city" id="display-city"></h1>
+            <p class="city-details">
+              <span id="time"></span>, <span id="weather-desc"></span> <br />
+              Humidity: <strong id="humidity-desc"></strong>, Wind: <strong id="wind-speed"></strong>
+            </p>
+          </div>
+
+          <div class="temp-container">
+            <div id="weather-icon"></div>
+            <div class="temp-value" id="temperature"></div>
+            <div class="temp-unit">°C</div>
+          </div>
+        </div>
+        <div class="forecast-container">
+          <div class="forecast-day">
+            <div class="forecast-date">Wed</div>
+            <div class="forecast-icon">⛅️</div>
+            <div class="forecast-temperatures">
+              <div class="forecast-temp">
+                <strong>15°</strong> 
+              </div>
+              <div class="forecast-temp">9°</div>
+            </div>
+          </div>
+
+          <div class="forecast-day">
+            <div class="forecast-date">Thu</div>
+            <div class="forecast-icon">⛅️</div>
+            <div class="forecast-temperatures">
+              <div class="forecast-temp">
+                <strong>15°</strong> 
+              </div>
+              <div class="forecast-temp">9°</div>
+            </div>
+          </div>
+
+          <div class="forecast-day">
+            <div class="forecast-date">Fri</div>
+            <div class="forecast-icon">⛅️</div>
+            <div class="forecast-temperatures">
+              <div class="forecast-temp">
+                <strong>15°</strong> 
+              </div>
+              <div class="forecast-temp">9°</div>
+            </div>
+          </div>
+
+          <div class="forecast-day">
+            <div class="forecast-date">Sat</div>
+            <div class="forecast-icon">⛅️</div>
+            <div class="forecast-temperatures">
+              <div class="forecast-temp">
+                <strong>15°</strong> 
+              </div>
+              <div class="forecast-temp">9°</div>
+            </div>
+          </div>
+          <div class="forecast-day">
+            <div class="forecast-date">Sun</div>
+            <div class="forecast-icon">⛅️</div>
+            <div class="forecast-temperatures">
+              <div class="forecast-temp">
+                <strong>15°</strong> 
+              </div>
+              <div class="forecast-temp">9°</div>
+            </div>
+          </div>
+        </div>
+        
+      </main>
+      <footer>
+        Coded by
+        <a href="https://github.com/esmetranquilino">Esme Tranquilino,</a>
+        code hosted on
+        <a href="https://github.com/esmetranquilino/week7-project">Github</a>
+        and website hosted on <a href="https://esmesweather.netlify.app/">Netlify.</a>
+      </footer>
+
+      <script src="app.js"></script>
+    </div>
+  </body>
+</html>
