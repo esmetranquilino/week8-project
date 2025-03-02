@@ -61,33 +61,44 @@ function getForecast (city) {
     axios(apiUrl).then(displayForecast);
 };
 
+function getDays (timestamp) {
+    let date = new Date(timestamp * 1000);
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+    return days[date.getDay()];
+}
 
 
 function displayForecast (res) {
     console.log(res.data)
 
-
-    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
     let forecastHtml= "";
 
 
-    days.forEach(function(day){
-        forecastHtml = 
-            forecastHtml +
-            `
-            <div class="forecast-day">
-                <div class="forecast-date">${day}</div>
-                <div class="forecast-icon">⛅️</div>
-                <div class="forecast-temperatures">
-                    <div class="forecast-temp">
-                        <strong>15°</strong>
+    res.data.daily.forEach(function(day, index){
+        if (index < 5) {
+            forecastHtml =
+              forecastHtml +
+              `
+                <div class="forecast-day">
+                    <div class="forecast-date">${getDays(day.time)}</div>
+                    <div class="forecast-icon">
+                        <img src="${day.condition.icon_url}" class="forecast-icon"/>
                     </div>
-                    <div class="forecast-temp">9°</div>
+                    <div class="forecast-temperatures">
+                        <div class="forecast-temp">
+                            <strong>${Math.round(day.temperature.maximum)}°</strong>
+                        </div>
+                        <div class="forecast-temp">${Math.round(day.temperature.minimum)}°</div>
+                    </div>
                 </div>
-            </div>
         
-        `;
+            `;
 
+        }
+
+        
+                   
     });
 
     let forecastElement = document.querySelector("#forecast");
@@ -98,7 +109,7 @@ function displayForecast (res) {
 let searchFormElement = document.querySelector("#search-form")
 searchFormElement.addEventListener("submit", searchSubmit)
 
-searchCity("Paris");
+searchCity("Los Angeles");
 // displayForecast();
  
 
